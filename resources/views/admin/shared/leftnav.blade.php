@@ -8,21 +8,21 @@
         </li>
         <li class="nav-item">
             <a class="nav-link text-light {{Str::of(url()->current())->contains("/users") ? "active" : ""}}"
-               href="/users">
+               href="/admin/blogs">
                 <span data-feather="users"></span>
                 Blogs
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-light {{Str::of(url()->current())->contains("/categories") ? "active" : ""}}"
-               href="/categories">
+               href="/admin/contacts">
                 <span data-feather="grid"></span>
                 Contact
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link text-light {{Str::of(url()->current())->contains("/products") ? "active" : ""}}"
-               href="/products">
+               href="/admin/cv">
                 <span data-feather="grid"></span>
                 CV
             </a>
