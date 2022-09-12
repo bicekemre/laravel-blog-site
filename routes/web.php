@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 /*
@@ -15,3 +16,4 @@ use App\Http\Controllers\Admin\UserController;
 
 
 Route::resource("/admin/user", UserController::class);
+Route::resource("/admin", PageController::class);
