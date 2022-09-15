@@ -19,12 +19,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-12 ">
                 <label for="text" class="form-label">Text</label>
-                <textarea type="text" id="text" name="text" placeholder="Enter text"   class="form-control" aria-label="With textarea">{{$blog->text}}</textarea>
-                @error("text")
-                <span class="text-danger">{{$message}}</span>
-                @enderror
+                <textarea id="myeditorinstance" name="text">{{$blog->text}}</textarea>
             </div>
         </div>
         <div class="row">

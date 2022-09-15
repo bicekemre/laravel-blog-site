@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{{asset("css/app.css")}}">
     <link rel="stylesheet" href="{{asset("css/adminpanel.css")}}">
 
-    <!-- Custom styles for this template -->
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+    <x-head.tinymce-config/>
     <link href="{{asset("css/dashboard.css")}}" rel="stylesheet">
 </head>
 <body class="bodybg">

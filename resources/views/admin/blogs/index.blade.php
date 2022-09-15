@@ -19,6 +19,7 @@
                                 <div class="btn-group">
                                     <a type="button" href="/admin/blogs/{{$blog->blog_id}}/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
                                     <a type="button" href="/admin/blogs/{{$blog->blog_id}}" class="btn list-item-delete btn-sm btn-outline-danger">Delete</a>
+                                    @method('DELETE')
                                 </div>
                                 <small class="text-muted">{{$blog->created_at}}</small>
                             </div>
