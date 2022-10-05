@@ -16,33 +16,57 @@ class ContactController extends Controller
     {
         $this->returnUrl= "/admin/contacts";
     }
+
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Contact  $contact
+     * @param  Contact  $contacts
      * @return View
      */
     public function edit(): View
     {
-        $contact = Contact::where('id', 1)->first();
-        return view("admin.contacts.index", ["contact" =>$contact]);
+        $contacts = Contact::where('id', 1)->first();
+        return view("admin.contacts.index", ["contact" =>$contacts]);
     }
 
-
     /**
-     * Update the specified resource in storage.
+     * Store a newly created resource in storage.
      *
-     * @param  ContactRequest $request
-     * @param  Contact $contact
+     * @param  ContactRequest  $request
      * @return Response
      */
-    public function update(Request $request)
+    public function create(ContactRequest $request): Response
     {
-        $contact = Contact::where('id', 1)->first();
+        $contact = new Contact();
         $data = $this->prepare($request, $contact->getFillable());
         $contact->fill($data);
         $contact->save();
 
         return Redirect::to($this->returnUrl);
     }
+
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  ContactRequest $request
+     * @param  Contact $contacts
+     * @return Response
+     */
+    public function update(Request $request)
+    {
+        $contacts = Contact::where('id', 1)->first();
+        $data = $this->prepare($request, $contacts->getFillable());
+        $contacts->fill($data);
+        $contacts->save();
+
+        return Redirect::to($this->returnUrl);
+    }
+
+
+
+
+
 }

@@ -24,8 +24,8 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            "email" => "required|sometimes|email",
-            "phone" => "required|numeric|max:11",
+            "email" => "sometimes|sometimes|email",
+            "phone" => "sometimes|numeric|max:11",
             "instagram" => "sometimes|min:3",
             "linkedin" => "sometimes|min:3",
             "facebook" => "sometimes|min:3",

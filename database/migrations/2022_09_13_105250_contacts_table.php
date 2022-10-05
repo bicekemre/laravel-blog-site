@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
-            $table->string('phone');
-            $table->string('instagram');
-            $table->string('linkedin');
-            $table->string('facebook');
-            $table->string('github');
-            $table->string('pinterest');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('github')->nullable();
+            $table->string('pinterest')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -35,6 +35,5 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('contacts');
-
     }
 };

@@ -1,2 +1,2 @@
-    <textarea id="myeditorinstance" name="text" ></textarea>
+    <textarea id="myeditorinstance" name="content" ></textarea>
 

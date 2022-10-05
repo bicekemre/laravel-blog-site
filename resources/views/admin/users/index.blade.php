@@ -16,8 +16,9 @@
         <tbody>
         @if(count($users) > 0)
             @foreach($users as $user)
-                <tr {{$user->user_id}}>
-                    <td>1</td>
+
+                <tr {{$user->id}}>
+                    <td> {{$user->id}}</td>
                     <td>{{$user->user_name}}</td>
                     <td>
                         <ul class="nav float-start">
