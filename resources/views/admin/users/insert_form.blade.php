@@ -17,6 +17,15 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-lg-3 align-content-center">
+                <label for="number" class="form-label">Number</label>
+                <input type="text" class="form-control" id="number" name="number" value="{{old("name")}}" placeholder="Enter Number">
+                @error("user_name")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="row">
             <div class="col-lg-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
