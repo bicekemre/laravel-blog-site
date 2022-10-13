@@ -15,8 +15,14 @@ class ContactController extends Controller
     public function __construct()
     {
         $this->returnUrl= "/admin/contacts";
+
     }
 
+    public function show(): View
+    {
+        $contact = Contact::where('id', 1)->first();
+        return view("visitor.contacts",  ["contact" =>$contact]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -64,9 +70,6 @@ class ContactController extends Controller
 
         return Redirect::to($this->returnUrl);
     }
-
-
-
 
 
 }

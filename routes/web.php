@@ -27,6 +27,10 @@ Route::get(
 Route::post('admin/login' ,[PageController::class, 'login']);
 Route::get('admin/logout' ,[PageController::class, 'logout']);
 
+Route::get("/admin/forget-password", [UserController::class, 'passwordForm']);
+Route::get("/admin/creat-validation", [UserController::class, 'validation']);
+Route::post("/admin/forget-password", [UserController::class, 'changePassword']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource("/admin/user", UserController::class);
     Route::resource("/admin/resume", ResumeController::class);
@@ -34,26 +38,32 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource("/admin/projects", ProjectController::class);
 
 
+
+    Route::controller(ProjectController::class)->group(function () {
+        Route::get('/projects', 'show');
+    });
     Route::controller(UserController::class)->group(function () {
         Route::get('/admin/user/{user}', 'destroy');
     });
     Route::controller(BlogController::class)->group(function () {
         Route::get('/admin/blogs/{blog}', 'destroy');
+        Route::get('/blogs', 'show');
     });
     Route::controller(ResumeController::class)->group(function () {
         Route::get('/admin/resume/{resume}', 'destroy');
+        Route::get('/resume', 'show');
     });
     Route::controller(PageController::class)->group(function () {
         Route::get('/admin', 'index');
-
+        Route::get('/', 'show');
     });
     Route::controller(ContactController::class)->group(function () {
         Route::get('/admin/contacts', 'edit');
         Route::put('/admin/contacts', 'update');
         Route::post('/admin/contacts/create', 'create');
+        Route::get('/contacts', 'show');
     });
-
-
 });
+
 
 

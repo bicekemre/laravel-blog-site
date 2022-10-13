@@ -26,6 +26,7 @@ class UserRequest extends FormRequest
     {
         return [
             "name" => "required|sometimes|min:3",
+            "number" => "required|sometimes|min:3",
             'password' => 'required|sometimes|string|min:5|confirmed'
         ];
     }
@@ -35,6 +36,8 @@ class UserRequest extends FormRequest
         return [
             "name.required" => "This area is neccesary.",
             "name.min" => "Name and surname field must contain at least 3 characters.",
+            "number.required" => "This area is neccesary.",
+            "number.min" => "Name and surname field must contain at least 3 characters.",
             "password.required" => "This area is neccesary.",
             "password.min" => "Password field must be at least 5 characters.",
             "password.confirmed" => "Passwords entered are not the same.",
@@ -48,5 +51,7 @@ class UserRequest extends FormRequest
             $this->request->set("password", Hash::make($password));
         }
     }
+
+
 }
 

@@ -41,9 +41,10 @@
         </div>
         <div class="checkbox mb-3">
             <label>
-                <a href="/admin/forgetPassword">Forget my password</a>
+                <a href="/admin/forget-password">Forget my password</a>
             </label>
         </div>
+
         <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
         <p class="mt-5 mb-3 text-muted">© 2017–2022</p>
     </form>

@@ -15,6 +15,8 @@ class UserController extends Controller
     public function __construct()
     {
         $this->returnUrl = "admin/user";
+
+        return $this->validationCode = rand(100000 , 999999);
     }
 
     /**
@@ -91,5 +93,39 @@ class UserController extends Controller
     {
         $user->delete();
         return Redirect::to($this->returnUrl);
+    }
+
+    public function passwordForm(User $user): View
+    {
+        return view("admin.mainpage.password_form", ["user" => $user]);
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param UserRequest $request
+     * @param  User  $user->number
+     * @return Response
+     */
+    public function validation(User  $user)
+    {
+        $number = $user->number;
+        $code =  $this->validationCode;
+        $user = User::where('number', '=', $number )->first();
+        $user->validation = $code;
+        return $user->save;
+    }
+
+    public function changePassword(User $user, UserRequest $request)
+    {
+
+
+
+
+        $data = $this->prepare($request, $user->getFillable());
+        $user->fill($data);
+        $user->save();
+        return redirect('admin/login');
     }
 }

@@ -12,14 +12,18 @@
 
 
 <main class="form-sign-in w-25 m-auto  mt-5">
-    <form method="POST" action="{{url("/log-in")}}">
+    <form method="post" action="{{url("/admin/creat-validation")}}">
         @csrf
+        @method('GET')
         <img class="mb-4" src="#" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <h1 class="h3 mb-3 fw-normal">Please Enter Phone number</h1>
 
-        <div class="form-floating">
-            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="number" name="number" placeholder="name@example.com">
             <label for="floatingInput">Phone Number</label>
+            @error("number")
+            <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Send Code</button>
         <p class="mt-5 mb-3 text-muted">© 2017–2022</p>

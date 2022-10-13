@@ -18,4 +18,5 @@ class Contact extends Model
         "github",
         "pinterest"
     ];
+
 }
