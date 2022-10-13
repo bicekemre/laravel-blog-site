@@ -3,24 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BlogRequest;
-use App\Models\Blog;
+use App\Models\Resume;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use \Illuminate\Http\Response;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class BlogController extends Controller
+class ResumeController extends Controller
 {
-
 
     public function __construct()
     {
-        $this->returnUrl= "/admin/blogs";
+        $this->returnUrl = "admin/resume";
     }
-
-
 
 
     /**
@@ -30,8 +26,8 @@ class BlogController extends Controller
      */
     public function index(): View
     {
-        $blogs  =  Blog::all();
-        return view("admin.blogs.index" ,["blogs"=>$blogs] );
+        $sections = Resume::all();
+        return view('admin.resume.index', ['sections'=>$sections]);
     }
 
     /**
@@ -41,22 +37,21 @@ class BlogController extends Controller
      */
     public function create(): View
     {
-        return view("admin.blogs.insert");
-
+        return view('admin.resume.insert');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BlogRequest  $request
-     * @return RedirectResponse
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(BlogRequest $request)
+    public function store(Request $request)
     {
-        $blog = new Blog();
-        $data = $this->prepare($request, $blog->getFillable());
-        $blog->fill($data);
-        $blog->save();
+        $section = new Resume();
+        $data = $this->prepare($request, $section->getFillable());
+        $section->fill($data);
+        $section->save();
 
         return Redirect::to($this->returnUrl);
     }
@@ -69,48 +64,48 @@ class BlogController extends Controller
      */
     public function show()
     {
-        return view("visitor.blogs");
+        return view("visitor.resume");
     }
+
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Blog  $blog
+     * @param  int $id
      * @return View
      */
-    public function edit(Blog $blog): View
+    public function edit(Resume $section): View
     {
-        return view("admin.blogs.update", ["blog" =>$blog]);
+        return view('admin.resume.update', ['section'=>$section]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BlogRequest  $request
-     * @param  Blog $blog
+     * @param Request $request
+     * @param  Resume  $section
      * @return RedirectResponse
      */
-    public function update(BlogRequest $request)
+    public function update(Request $request)
     {
-        $blog = Blog::where('blog_id', $request->blog_id)->first();
-        $data = $this->prepare($request, $blog->getFillable());
-        $blog->fill($data);
-        $blog->save();
+        $section = Resume::all('section_id');
+        $data = $this->prepare($request, $section->getFillable());
+        $section->fill($data);
+        $section->save();
+
 
         return Redirect::to($this->returnUrl);
     }
 
-
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Blog $blog
+     * @param  Resume  $section
      * @return RedirectResponse
      */
-    public function destroy(Blog $blog)
+    public function destroy(Resume $section): RedirectResponse
     {
-        $blog->delete();
+        $section->delete();
         return Redirect::to($this->returnUrl);
     }
 }
