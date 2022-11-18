@@ -4,7 +4,7 @@
 @section("btn_url",url("admin"))
 @section("btn_label","Turn Back")
 @section("btn_icon","plus")
-@section("content")
+@section("contents")
     @if(isset($contact) == true)
         <form action="{{url('admin/contacts')}}" method="POST" autocomplete="off" novalidate>
             @csrf
@@ -23,6 +23,24 @@
                     <label for="phone" class="form-label">phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" value="{{$contact->phone}}" placeholder="Enter phone">
                     @error("phone")
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 align-content-center">
+                    <label for="phone" class="form-label">address</label>
+                    <input type="text" class="form-control" id="address" name="address" value="{{$contact->address}}" placeholder="Enter address">
+                    @error("address")
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 align-content-center">
+                    <label for="website" class="form-label">website</label>
+                    <input type="text" class="form-control" id="website" name="website" value="{{$contact->website}}" placeholder="Enter website">
+                    @error("website")
                     <span class="text-danger">{{$message}}</span>
                     @enderror
                 </div>

@@ -26,8 +26,8 @@ class ProjectRequest extends FormRequest
         return [
             "title.required" => "This area is neccesary.",
             "title.min" => "Name and surname field must contain at least 3 characters.",
-            "content.required" => "This area is neccesary.",
-            "content.min" => "Name and surname field must contain at least 5 characters.",
+            "contents.required" => "This area is neccesary.",
+            "contents.min" => "Name and surname field must contain at least 5 characters.",
             "techs.required" => "This area is neccesary.",
             "techs.min" => "Name and surname field must contain at least 3 characters.",
             "link.required" => "This area is neccesary.",

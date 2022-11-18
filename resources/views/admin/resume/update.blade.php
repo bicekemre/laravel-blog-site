@@ -4,7 +4,7 @@
 @section("btn_url",url()->previous())
 @section("btn_label","Turn Back")
 @section("btn_icon","arrow-left")
-@section("content")
+@section("contents")
     <form action="{{url('admin/resume/'.$section->section_id.'/edit')}}" method="POST" autocomplete="off" novalidate>
         @csrf
         @method("PUT")
@@ -20,14 +20,26 @@
         </div>
         <div class="row">
             <div class="col-lg-3">
-                <label for="seq" class="form-label">Content no</label>
-                <input type="text" class="form-control" id="seq" name="seq" placeholder="Enter Section que">
+                <label for="alt" class="form-label">Content no</label>
+                <input type="text" class="form-control" id="alt" name="alt" value="{{ $section->alt }}" placeholder="Enter Section que">
             </div>
         </div>
         <div class="row">
-            <div class="col-12 ">
-                <label for="text" class="form-label">Text</label>
-                <textarea id="myeditorinstance" name="text">{{$section->content}}</textarea>
+            <div class="col-lg-3">
+                <label for="where" class="form-label">Where</label>
+                <input type="text" class="form-control" id="where" name="where" value="{{ $section->where }}" placeholder="">
+                @error("where")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="year" class="form-label">Year</label>
+                <input type="text" class="form-control" id="year" name="year" value="{{ $section->year }}" placeholder="">
+                @error("year")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
         </div>
         <div class="row">

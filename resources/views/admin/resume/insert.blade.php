@@ -4,7 +4,7 @@
 @section("btn_url",url()->previous())
 @section("btn_label","Turn Back")
 @section("btn_icon","arrow-left")
-@section("content")
+@section("contents")
     <form action="{{url("/admin/resume")}}" method="POST">
         @csrf
         <div class="row">
@@ -26,9 +26,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 ">
-                <label for="content" class="form-label">Text</label>
-                <x-forms.tinymce-editor/>
+            <div class="col-lg-3">
+                <label for="where" class="form-label">Where</label>
+                <input type="text" class="form-control" id="where" name="where" placeholder="">
+                @error("where")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="year" class="form-label">Year</label>
+                <input type="text" class="form-control" id="year" name="year" placeholder="">
+                @error("year")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
         </div>
         <div class="row">

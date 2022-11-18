@@ -4,7 +4,7 @@
 @section("btn_url",url("admin/blogs/create"))
 @section("btn_label","Add Blog")
 @section("btn_icon","plus")
-@section("content")
+@section("contents")
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         @if(count($blogs) > 0)
             @foreach($blogs as $blog)
@@ -18,6 +18,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a type="button" href="/admin/blogs/{{$blog->blog_id}}/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    <a type="button" href="/admin/blogs/{{$blog->blog_id}}/comments" class="btn btn-sm btn-outline-primary">Comments</a>
                                     <a type="button" href="/admin/blogs/{{$blog->blog_id}}" class="btn list-item-delete btn-sm btn-outline-danger">Delete</a>
                                     @method('DELETE')
                                 </div>

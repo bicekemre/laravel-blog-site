@@ -66,7 +66,20 @@ class ProjectController extends Controller
      */
     public function show()
     {
-        return view("visitor.projects");
+        $projects = Project::all();
+        return view("visitor.projects.index",["projects"=>$projects]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function sight()
+    {
+        $projects = Project::all();
+        return view("visitor.projects.index",["projects"=>$projects]);
     }
 
     /**
@@ -75,7 +88,7 @@ class ProjectController extends Controller
      * @param  Project  $project
      * @return View
      */
-    public function edit($project)
+    public function edit(Project  $project)
     {
         return view("admin.projects.update" , ["project"=>$project]);
     }

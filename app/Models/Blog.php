@@ -22,7 +22,7 @@ class Blog extends Model
     protected $fillable = [
         "blog_id",
         "title",
-        "content",
+        "contents",
         "text"
     ];
 
@@ -38,5 +38,10 @@ class Blog extends Model
         }
 
         return $text;
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, "blog_id", "blog_id");
     }
 }

@@ -4,7 +4,7 @@
 @section("btn_url",url("admin/resume/create"))
 @section("btn_label","Add Section")
 @section("btn_icon","plus")
-@section("content")
+@section("contents")
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         @if(count($sections) > 0)
             @foreach($sections as $section )

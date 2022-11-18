@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\CommentRequest;
 use App\Models\Blog;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class BlogController extends Controller
      */
     public function index(): View
     {
+
         $blogs  =  Blog::all();
         return view("admin.blogs.index" ,["blogs"=>$blogs] );
     }
@@ -66,10 +68,24 @@ class BlogController extends Controller
      *
      * @param  int  $id
      * @return View
+     *
      */
     public function show()
     {
-        return view("visitor.blogs");
+        $blogs =  Blog::all();
+        return view("visitor.blogs.index",["blogs"=>$blogs]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return View
+     */
+    public function sight(Blog $blog)
+    {
+        $blog =  Blog::where("blog_id",$blog->blog_id )->first();
+        return view("visitor.blogs.sight",["blog"=>$blog]);
     }
 
     /**

@@ -1388,7 +1388,7 @@
     };
     const getHeight$1 = element => getProp(element, 'height', element.dom.offsetHeight);
     const getWidth = element => getProp(element, 'width', element.dom.offsetWidth);
-    const getInnerWidth = element => getCalculatedWidth(element, 'content-box');
+    const getInnerWidth = element => getCalculatedWidth(element, 'contents-box');
 
     const api$2 = Dimension('width', element => element.dom.offsetWidth);
     const get$9 = element => api$2.get(element);

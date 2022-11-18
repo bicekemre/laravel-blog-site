@@ -19952,7 +19952,7 @@
     const loadSkin = (isInline, editor) => {
       const skinUrl = getSkinUrl(editor);
       if (skinUrl) {
-        editor.contentCSS.push(skinUrl + (isInline ? '/content.inline' : '/content') + '.min.css');
+        editor.contentCSS.push(skinUrl + (isInline ? '/contents.inline' : '/contents') + '.min.css');
       }
       if (!isSkinDisabled(editor) && isString(skinUrl)) {
         Promise.all([
@@ -25023,7 +25023,7 @@
         components: [{
             dom: {
               tag: 'div',
-              classes: ['tox-dialog__body-content']
+              classes: ['tox-dialog__body-contents']
             },
             components: [memForm.asSpec()]
           }],
@@ -25484,7 +25484,7 @@
           TabSection.parts.tabview({
             dom: {
               tag: 'div',
-              classes: ['tox-dialog__body-content']
+              classes: ['tox-dialog__body-contents']
             }
           })
         ],
@@ -25624,7 +25624,7 @@
       components: [{
           dom: {
             tag: 'div',
-            classes: ['tox-dialog__body-content']
+            classes: ['tox-dialog__body-contents']
           },
           components: [{ dom: fromHtml(`<p>${ providersBackstage.translate(message) }</p>`) }]
         }]
@@ -26189,7 +26189,7 @@
     const renderInlineDialog = (dialogInit, extra, backstage, ariaAttrs) => {
       const dialogId = generate$6('dialog');
       const dialogLabelId = generate$6('dialog-label');
-      const dialogContentId = generate$6('dialog-content');
+      const dialogContentId = generate$6('dialog-contents');
       const internalDialog = dialogInit.internalDialog;
       const updateState = (_comp, incoming) => Optional.some(incoming);
       const memHeader = record(renderInlineHeader({

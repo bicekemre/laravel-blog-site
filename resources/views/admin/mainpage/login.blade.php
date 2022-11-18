@@ -12,7 +12,7 @@
 
 
 <main class="form-sign-in w-25 m-auto  mt-5">
-    <form method="POST" action="{{url("/admin/login")}}">
+    <form method="POST" action="/admin/login">
         @csrf
         @method('POST')
         <img class="mb-4" src="#" alt="" width="72" height="57">

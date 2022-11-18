@@ -25,7 +25,7 @@ class ResumeRequest extends FormRequest
     {
         return [
             "title" => "required|sometimes|min:2",
-            "content" => "required|sometimes|min:5",
+            "contents" => "required|sometimes|min:5",
             "alt"=> "required|numeric|min:1",
         ];
     }
@@ -35,8 +35,8 @@ class ResumeRequest extends FormRequest
         return [
             "title.required" => "This area is neccesary.",
             "title.min" => "Name and surname field must contain at least 3 characters.",
-            "content.required" => "This area is neccesary.",
-            "content.min" => "Name and surname field must contain at least 5 characters.",
+            "contents.required" => "This area is neccesary.",
+            "contents.min" => "Name and surname field must contain at least 5 characters.",
         ];
     }
 }

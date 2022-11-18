@@ -4,7 +4,7 @@
 @section("btn_url",url("admin/user/create"))
 @section("btn_label","Add User")
 @section("btn_icon","plus")
-@section("content")
+@section("contents")
     <table class="table table-striped text-blue table-sm">
         <thead>
         <tr>

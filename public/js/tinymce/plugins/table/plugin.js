@@ -910,7 +910,7 @@
       const width = dom.getBoundingClientRect().width || dom.offsetWidth;
       return boxSizing === 'border-box' ? width : calcContentBoxSize(element, width, 'left', 'right');
     };
-    const getInnerWidth = element => getCalculatedWidth(element, 'content-box');
+    const getInnerWidth = element => getCalculatedWidth(element, 'contents-box');
 
     const getInner = getInnerWidth;
 

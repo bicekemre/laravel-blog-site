@@ -2844,7 +2844,7 @@
       add('title hr noscript br');
       add('base', 'href target');
       add('link', 'href rel media hreflang type sizes hreflang');
-      add('meta', 'name http-equiv content charset');
+      add('meta', 'name http-equiv contents charset');
       add('style', 'media type scoped');
       add('script', 'src async defer type charset');
       add('body', 'onafterprint onbeforeprint onbeforeunload onblur onerror onfocus ' + 'onhashchange onload onmessage onoffline ononline onpagehide onpageshow ' + 'onpopstate onresize onscroll onstorage onunload', flowContent);
@@ -10258,7 +10258,7 @@
     const isEditorContentAreaElement = elm => {
       const classList = elm.classList;
       if (classList !== undefined) {
-        return classList.contains('tox-edit-area') || classList.contains('tox-edit-area__iframe') || classList.contains('mce-content-body');
+        return classList.contains('tox-edit-area') || classList.contains('tox-edit-area__iframe') || classList.contains('mce-contents-body');
       } else {
         return false;
       }
@@ -18872,7 +18872,7 @@
       return transformToUrls(editor, getFontCss(editor));
     };
     const transformToUrls = (editor, cssLinks) => {
-      const skinUrl = editor.editorManager.baseURL + '/skins/content';
+      const skinUrl = editor.editorManager.baseURL + '/skins/contents';
       const suffix = editor.editorManager.suffix;
       const contentCssFile = `content${ suffix }.css`;
       return map$3(cssLinks, url => {
@@ -21778,7 +21778,7 @@
             }
           }
         }
-        return '<span class="' + cls + '" data-mce-content="' + editor.dom.encode(args[0]) + '">' + editor.dom.encode(typeof args[1] === 'string' ? args[1] : args[0]) + '</span>';
+        return '<span class="' + cls + '" data-mce-contents="' + editor.dom.encode(args[0]) + '">' + editor.dom.encode(typeof args[1] === 'string' ? args[1] : args[0]) + '</span>';
       };
     };
     const convertRegExpsToNonEditable = (editor, nonEditableRegExps, e) => {
@@ -21821,11 +21821,11 @@
           if (!hasEditClass(node) && !hasNonEditClass(node)) {
             continue;
           }
-          if (nonEditableRegExps.length > 0 && node.attr('data-mce-content')) {
+          if (nonEditableRegExps.length > 0 && node.attr('data-mce-contents')) {
             node.name = '#text';
             node.type = 3;
             node.raw = true;
-            node.value = node.attr('data-mce-content');
+            node.value = node.attr('data-mce-contents');
           } else {
             node.attr(contentEditableAttrName, null);
           }
@@ -26632,7 +26632,7 @@
             }
           } while (elm = elm.parentNode);
         });
-        editor.contentStyles.push('.mce-content-body {-webkit-touch-callout: none}');
+        editor.contentStyles.push('.mce-contents-body {-webkit-touch-callout: none}');
       };
       const blockFormSubmitInsideEditor = () => {
         editor.on('init', () => {
@@ -26984,7 +26984,7 @@
       const targetElm = editor.getElement();
       let doc = editor.getDoc();
       if (editor.inline) {
-        DOM$6.addClass(targetElm, 'mce-content-body');
+        DOM$6.addClass(targetElm, 'mce-contents-body');
         editor.contentDocument = doc = document;
         editor.contentWindow = window;
         editor.bodyElement = targetElm;
@@ -27101,12 +27101,12 @@
       if (getDocumentBaseUrl(editor) !== editor.documentBaseUrl) {
         iframeHTML += '<base href="' + editor.documentBaseURI.getURI() + '" />';
       }
-      iframeHTML += '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
+      iframeHTML += '<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8" />';
       const bodyId = getBodyId(editor);
       const bodyClass = getBodyClass(editor);
       const translatedAriaText = editor.translate(getIframeAriaText(editor));
       if (getContentSecurityPolicy(editor)) {
-        iframeHTML += '<meta http-equiv="Content-Security-Policy" content="' + getContentSecurityPolicy(editor) + '" />';
+        iframeHTML += '<meta http-equiv="Content-Security-Policy" contents="' + getContentSecurityPolicy(editor) + '" />';
       }
       iframeHTML += '</head>' + `<body id="${ bodyId }" class="mce-content-body ${ bodyClass }" data-id="${ editor.id }" aria-label="${ translatedAriaText }">` + '<br>' + '</body></html>';
       return iframeHTML;
@@ -28151,7 +28151,7 @@
     };
     const toggleReadOnly = (editor, state) => {
       const body = SugarElement.fromDom(editor.getBody());
-      toggleClass(body, 'mce-content-readonly', state);
+      toggleClass(body, 'mce-contents-readonly', state);
       if (state) {
         editor.selection.controlSelection.hideResizeRect();
         editor._selectionOverrides.hideFakeCaret();

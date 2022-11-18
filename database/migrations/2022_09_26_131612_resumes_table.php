@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('resumes', function (Blueprint $table){
             $table->id('section_id');
+            $table->string('year');
             $table->string('title');
+            $table->string('where');
             $table->integer('alt')->default(null);
-            $table->string('content');
+            $table->string('contents');
             $table->softDeletes();
             $table->timestamps();
         });

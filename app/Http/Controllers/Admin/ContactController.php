@@ -21,7 +21,7 @@ class ContactController extends Controller
     public function show(): View
     {
         $contact = Contact::where('id', 1)->first();
-        return view("visitor.contacts",  ["contact" =>$contact]);
+        return view("visitor.contact.index",  ["contact" =>$contact]);
     }
 
     /**

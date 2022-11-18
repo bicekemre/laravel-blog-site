@@ -4,7 +4,7 @@
 @section("btn_url",url()->previous())
 @section("btn_label","Turn Back")
 @section("btn_icon","arrow-left")
-@section("content")
+@section("contents")
     <form action="{{route('user.update', [$user->id])}}" method="POST" autocomplete="off" novalidate>
         @csrf
         @method("PUT")

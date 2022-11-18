@@ -64,7 +64,8 @@ class ResumeController extends Controller
      */
     public function show()
     {
-        return view("visitor.resume");
+        $sections = Resume::all();
+        return view("visitor.resume.index", ['sections'=>$sections]);
     }
 
 

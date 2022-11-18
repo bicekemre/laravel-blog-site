@@ -13,7 +13,7 @@ class Resume extends Model
         'section_id',
 
         'title',
-        'content',
+        'contents',
     ];
 
 }
